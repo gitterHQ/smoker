@@ -7,7 +7,7 @@ var assert = require('assert');
 describe('smoker', function() {
 
   this.timeout(20000);
-  var ext = process.platform.indexOf('win') >= 0 ? 'bat' : 'sh';
+  var ext = process.platform === 'win32' ? 'bat' : 'sh';
 
   it('fails a process that lasts one second before exit 1', function(done) {
     smoketest(__dirname + '/one-second-fail.' + ext, function(err) {
